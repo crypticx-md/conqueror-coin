@@ -23,14 +23,16 @@
   header { display:flex; justify-content:center; align-items:center; height:100vh; background:url('https://images.unsplash.com/photo-1609943541984-48bb5827d9f0?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; flex-direction:column; text-align:center; position:relative;}
   header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);}
   /* UPDATED: Added logo at top with glow animation */
-  .logo {
-    width:120px;
-    height:auto;
-    z-index:2;
-    margin-bottom:20px;
-    animation: float 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px gold);
-  }
+ .logo {
+  width: 120px;
+  height: auto;
+  z-index: 2;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px gold);
+  border-radius: 50%; /* Makes the logo circular */
+}
+
 
   header h1 { font-size:3em; margin-bottom:0.5em; color:#ffd700; position:relative; z-index:1;}
   header p { font-size:1.2em; margin-bottom:1.5em; position:relative; z-index:1;}
@@ -118,6 +120,7 @@
 
 </body>
 </html>
+
 
 
 
