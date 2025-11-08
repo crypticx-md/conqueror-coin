@@ -255,7 +255,33 @@
   faders.forEach(fader => { appearOnScroll.observe(fader); });
 </script>
 
+ <script>
+  const connectButton = document.querySelector(".btn");
+
+  connectButton.addEventListener("click", async () => {
+    if ("solana" in window) {
+      const provider = window.solana;
+
+      if (provider.isPhantom) {
+        try {
+          const response = await provider.connect();
+          const walletAddress = response.publicKey.toString();
+          alert("✅ Connected to Phantom!\nAddress: " + walletAddress);
+          console.log("Wallet Address:", walletAddress);
+        } catch (err) {
+          console.error("Connection cancelled or failed:", err);
+          alert("❌ Connection failed or cancelled.");
+        }
+      }
+    } else {
+      alert("Phantom Wallet not found! 🦄\nPlease install it from https://phantom.app");
+      window.open("https://phantom.app", "_blank");
+    }
+  });
+</script>
+
 </body>
 </html>
+
 
 
