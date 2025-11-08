@@ -6,7 +6,7 @@
 <title>Conqueror Coin ($CQR) - Game Token</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
- <!-- UPDATED: Added Google Fonts for a more futuristic style -->
+<!-- UPDATED: Added Google Fonts for a more futuristic style -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,7 +17,7 @@
     font-family: 'Roboto', sans-serif;
     overflow-x:hidden;
   }
- 
+
   /* UPDATED: Added floating animation and improved text styling */
   @keyframes float {
     0% { transform:translateY(0px); }
@@ -25,57 +25,171 @@
     100% { transform:translateY(0px); }
   }
 
-  header { display:flex; justify-content:center; align-items:center; height:100vh; background:url('https://images.unsplash.com/photo-1609943541984-48bb5827d9f0?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; flex-direction:column; text-align:center; position:relative;}
-  header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);}
+  header {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1609943541984-48bb5827d9f0?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    flex-direction:column;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+
+  header::after {
+    content:"";
+    position:absolute;
+    top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.7);
+  }
+
   /* UPDATED: Added logo at top with glow animation */
-.logo { 
-  width: 120px; 
-  height:120px;              /* Make height same as width for perfect circle */
-  border-radius: 50%;         /* Fully rounded */
-  z-index:2;
-  margin-bottom:20px;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px gold);
-} 
+  .logo {
+    width:120px;
+    height:auto;
+    border-radius: 50%;
+    z-index:2;
+    margin-bottom:20px;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px gold);
+  }
 
+  header h1 {
+    font-size:3em;
+    margin-bottom:0.5em;
+    color:#ffd700;
+    position:relative;
+    z-index:1;
+    font-family:'Orbitron', sans-serif;
+    text-shadow: 0 0 15px #ffd700;
+  }
 
+  header p {
+    font-size:1.2em;
+    margin-bottom:1.5em;
+    position:relative;
+    z-index:1;
+  }
 
-  header h1 { font-size:3em; margin-bottom:0.5em; color:#ffd700; position:relative; z-index:1;}
-  header p { font-size:1.2em; margin-bottom:1.5em; position:relative; z-index:1;}
-  .btn { padding:12px 30px; background:#ffd700; color:#000; font-weight:bold; border:none; cursor:pointer; border-radius:8px; transition:0.3s; text-decoration:none; position:relative; z-index:1;}
-  .btn:hover { background:#ffea00; }
-  section { padding:80px 20px; max-width:1000px; margin:0 auto; }
-  h2 { font-size:2em; margin-bottom:1em; color:#ffd700; text-align:center; }
+  .btn {
+    padding:12px 30px;
+    background:#ffd700;
+    color:#000;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+    transition:0.3s;
+    text-decoration:none;
+    position:relative;
+    z-index:1;
+    box-shadow:0 0 10px #ffd700;
+  }
+
+  .btn:hover { background:#ffea00; transform:scale(1.05); }
+
+  section {
+    padding:80px 20px;
+    max-width:1000px;
+    margin:0 auto;
+  }
+
+  h2 {
+    font-size:2.2em;
+    margin-bottom:1em;
+    color:#ffd700;
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+    text-shadow:0 0 10px #ffd700;
+  }
+
   .about, .roadmap, .buy, .whitepaper, .contact { margin-bottom:60px; }
+
   ul { list-style:none; }
   ul li { margin-bottom:10px; }
-  footer { text-align:center; padding:40px 20px; background:#111; color:#aaa; }
-  .whitepaper a { display:inline-block; margin-top:15px; padding:12px 25px; background:#ffd700; color:#000; font-weight:bold; border-radius:8px; text-decoration:none; transition:0.3s;}
-  .whitepaper a:hover { background:#ffea00; }
+
+  footer {
+    text-align:center;
+    padding:40px 20px;
+    background:#111;
+    color:#aaa;
+    border-top:1px solid rgba(255,215,0,0.2);
+  }
+
+  .whitepaper a {
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#ffd700;
+    color:#000;
+    font-weight:bold;
+    border-radius:8px;
+    text-decoration:none;
+    transition:0.3s;
+    box-shadow:0 0 10px #ffd700;
+  }
+
+  .whitepaper a:hover { background:#ffea00; transform:scale(1.05); }
+
   .section-content { text-align:center; }
-  .roadmap ul { display:flex; flex-direction:column; gap:20px; align-items:center; }
-  .roadmap li { background:rgba(255,215,0,0.1); padding:15px 20px; border-radius:10px; width:80%; }
+
+  .roadmap ul {
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+  }
+
+  .roadmap li {
+    background:rgba(255,215,0,0.08);
+    padding:20px 25px;
+    border-radius:10px;
+    width:80%;
+    transition:0.3s;
+    border:1px solid rgba(255,215,0,0.2);
+  }
+
+  /* UPDATED: Add hover glow to roadmap items */
+  .roadmap li:hover {
+    transform:scale(1.05);
+    background:rgba(255,215,0,0.15);
+    box-shadow:0 0 20px rgba(255,215,0,0.2);
+  }
+
   @media(min-width:768px){
     .roadmap ul { flex-direction:row; flex-wrap:wrap; justify-content:center; }
     .roadmap li { width:250px; }
   }
+
+  /* UPDATED: Added subtle fade-in on scroll */
+  .fade-in {
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 1s ease-out, transform 1s ease-out;
+  }
+  .fade-in.visible {
+    opacity:1;
+    transform:translateY(0);
+  }
 </style>
 </head>
 <body>
-
+  
 <header>
- <img src="ChatGPT Image Oct 17, 2025, 06_21_18 AM.png" alt="Conqueror Coin Logo" class="logo">
- <h1>Conqueror Coin ($CQR)</h1>
+  <!-- UPDATED: Added coin logo -->
+  <img src="C:\Users\Md Fahad\Downloads\logo.png" alt="Conqueror Coin Logo" class="logo">
+  <h1>Conqueror Coin ($CQR)</h1>
   <p>The ultimate game token for conquering kingdoms and claiming rewards!</p>
   <a href="#buy" class="btn">Buy Tokens</a>
 </header>
 
-<section class="about" id="about">
+<section class="about fade-in" id="about">
   <h2>About Conqueror Coin</h2>
   <div class="section-content">
-    <p>Conqueror Coin ($CQR) is the in-game currency for the Conqueror universe. Earn, trade, and spend $CC for exclusive items, upgrades, and privileges inside the game.</p>
+    <p>Conqueror Coin ($CQR) powers the <strong>Conqueror Universe</strong> — a digital world where strategy meets rewards. Earn, trade, and upgrade your empire with the most powerful gaming currency.</p>
     <ul>
-      <li>Used to buy weapons, skins, and special abilities</li>
+      <li>Buy weapons, skins, and exclusive abilities</li>
       <li>Earn $CQR through gameplay achievements</li>
       <li>Tradeable on Solana DEXs</li>
       <li>Limited total supply for scarcity</li>
@@ -83,15 +197,15 @@
   </div>
 </section>
 
-<section class="whitepaper" id="whitepaper">
+<section class="whitepaper fade-in" id="whitepaper">
   <h2>Whitepaper</h2>
   <div class="section-content">
-    <p>Download the official Conqueror Coin whitepaper to learn about tokenomics, roadmap, and game integration.</p>
+    <p>Dive deeper into our tokenomics, gameplay integration, and project roadmap by downloading our official whitepaper.</p>
     <a href="ConquerorCoin_Whitepaper.pdf" target="_blank">Download Whitepaper</a>
   </div>
 </section>
 
-<section class="roadmap" id="roadmap">
+<section class="roadmap fade-in" id="roadmap">
   <h2>Roadmap</h2>
   <ul>
     <li><strong>Q4 2025:</strong> Conqueror Coin launch & ICO</li>
@@ -101,19 +215,19 @@
   </ul>
 </section>
 
-<section class="buy" id="buy">
+<section class="buy fade-in" id="buy">
   <h2>How to Buy $CQR</h2>
   <div class="section-content">
     <p>1. Connect your Phantom or Solflare wallet</p>
     <p>2. Send SOL to the Conqueror Coin smart contract</p>
     <p>3. Receive $CQR instantly in your wallet</p>
-   <br>
-   <br>
+    <br>
+    <br>
     <a href="#" class="btn">Connect Wallet</a>
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact fade-in" id="contact">
   <h2>Contact & Socials</h2>
   <div class="section-content">
     <p>Telegram: @ConquerorCoin</p>
@@ -126,22 +240,19 @@
   <p>© 2025 Conqueror Coin. All Rights Reserved.</p>
 </footer>
 
+<!-- UPDATED: Added simple scroll animation script -->
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.3 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => { appearOnScroll.observe(fader); });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
