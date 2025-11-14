@@ -224,6 +224,7 @@
     <br>
     <br>
     <button class="btn" id="connectWallet">Connect Wallet</button>
+    <p id="walletStatus" style="margin-top:20px; font-size:1.1em; color:#ffd700;"></p>
 
   </div>
 </section>
@@ -256,32 +257,49 @@
 </script>
 
  <script>
-  const connectButton = document.querySelector(".btn");
+document.addEventListener("DOMContentLoaded", async function () {
+  const connectButton = document.getElementById("connectWallet");
+  const walletStatus = document.getElementById("walletStatus");
+
+  async function checkIfConnected() {
+    if (window.solana && window.solana.isPhantom) {
+      try {
+        const resp = await window.solana.connect({ onlyIfTrusted: true });
+        const address = resp.publicKey.toString();
+        walletStatus.textContent = "Connected Wallet: " + address;
+        connectButton.textContent = "Connected ✅";
+        connectButton.disabled = true;
+      } catch (err) {
+        console.log("Not connected yet.");
+      }
+    }
+  }
 
   connectButton.addEventListener("click", async () => {
-    if ("solana" in window) {
-      const provider = window.solana;
-
-      if (provider.isPhantom) {
-        try {
-          const response = await provider.connect();
-          const walletAddress = response.publicKey.toString();
-          alert("✅ Connected to Phantom!\nAddress: " + walletAddress);
-          console.log("Wallet Address:", walletAddress);
-        } catch (err) {
-          console.error("Connection cancelled or failed:", err);
-          alert("❌ Connection failed or cancelled.");
-        }
+    if (window.solana && window.solana.isPhantom) {
+      try {
+        const resp = await window.solana.connect();
+        const address = resp.publicKey.toString();
+        walletStatus.textContent = "Connected Wallet: " + address;
+        connectButton.textContent = "Connected ✅";
+        connectButton.disabled = true;
+      } catch (err) {
+        alert("❌ Wallet connection cancelled.");
       }
     } else {
-      alert("Phantom Wallet not found! 🦄\nPlease install it from https://phantom.app");
+      alert("⚠️ Phantom Wallet not detected! Install it from https://phantom.app");
       window.open("https://phantom.app", "_blank");
     }
   });
+
+  checkIfConnected();
+});
 </script>
+
 
 </body>
 </html>
+
 
 
 
